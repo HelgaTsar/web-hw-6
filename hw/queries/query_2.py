@@ -2,8 +2,8 @@ import sqlite3
 
 
 def execute_query_2(sql: str) -> list:
-    with sqlite3.connect('hw6.db') as con:
-        cur = con.cursor()
+    with sqlite3.connect('hw6.db') as conn:
+        cur = conn.cursor()
         cur.execute(sql)
         return cur.fetchall()
 

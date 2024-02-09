@@ -2,84 +2,84 @@ import sqlite3
 
 
 def drop_table_groups():
-    with sqlite3.connect('hw6.db') as con:
+    with sqlite3.connect('hw6.db') as conn:
         sql = """DROP TABLE IF EXISTS [groups];"""
-        cur = con.cursor()
+        cur = conn.cursor()
         cur.execute(sql)
         return cur.fetchall()
 
 def drop_table_students():
-    with sqlite3.connect('hw6.db') as con:
+    with sqlite3.connect('hw6.db') as conn:
         sql = """DROP TABLE IF EXISTS students;"""
-        cur = con.cursor()
+        cur = conn.cursor()
         cur.execute(sql)
         return cur.fetchall()
     
 def drop_table_teachers():
-    with sqlite3.connect('hw6.db') as con:
+    with sqlite3.connect('hw6.db') as conn:
         sql = """DROP TABLE IF EXISTS teachers;"""
-        cur = con.cursor()
+        cur = conn.cursor()
         cur.execute(sql)
         return cur.fetchall()
     
 def drop_table_disciplines():
-    with sqlite3.connect('hw6.db') as con:
+    with sqlite3.connect('hw6.db') as conn:
         sql = """DROP TABLE IF EXISTS disciplines;"""
-        cur = con.cursor()
+        cur = conn.cursor()
         cur.execute(sql)
         return cur.fetchall()
     
 def drop_table_grades():
-    with sqlite3.connect('hw6.db') as con:
+    with sqlite3.connect('hw6.db') as conn:
         sql = """DROP TABLE IF EXISTS grades;"""
-        cur = con.cursor()
+        cur = conn.cursor()
         cur.execute(sql)
         return cur.fetchall()
     
 def create_table_groups():
-    with sqlite3.connect('hw6.db') as con:
+    with sqlite3.connect('hw6.db') as conn:
         sql = """CREATE TABLE [groups] (
      id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
      name STRING UNIQUE
 );"""
-        cur = con.cursor()
+        cur = conn.cursor()
         cur.execute(sql)
         return cur.fetchall()
 
 def create_table_students():
-    with sqlite3.connect('hw6.db') as con:
+    with sqlite3.connect('hw6.db') as conn:
         sql = """CREATE TABLE students (
      id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
      fullname STRING,
      group_id REFERENCES [groups] (id)
 );"""
-        cur = con.cursor()
+        cur = conn.cursor()
         cur.execute(sql)
         return cur.fetchall()
     
 def create_table_teachers():
-    with sqlite3.connect('hw6.db') as con:
+    with sqlite3.connect('hw6.db') as conn:
         sql = """CREATE TABLE teachers (
      id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
      fullname STRING
 );"""
-        cur = con.cursor()
+        cur = conn.cursor()
         cur.execute(sql)
         return cur.fetchall()
     
 def create_table_disciplines():
-    with sqlite3.connect('hw6.db') as con:
+    with sqlite3.connect('hw6.db') as conn:
         sql = """CREATE TABLE disciplines (
      id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
      name STRING UNIQUE,
      teacher_id REFERENCES teachers (id)
 );"""
-        cur = con.cursor()
+        cur = conn.cursor()
         cur.execute(sql)
         return cur.fetchall()
 
 def create_table_grades():
-    with sqlite3.connect('hw6.db') as con:
+    with sqlite3.connect('hw6.db') as conn:
         sql = """CREATE TABLE grades (
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     grades INTEGER, 
@@ -87,7 +87,7 @@ def create_table_grades():
     students_id REFERENCES students (id),
     date_of DATE
 );"""
-        cur = con.cursor()
+        cur = conn.cursor()
         cur.execute(sql)
         return cur.fetchall()
 

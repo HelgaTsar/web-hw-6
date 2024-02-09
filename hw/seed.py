@@ -16,7 +16,7 @@ disciplines = [
 ]
 groups = ["ХТ1","ХТ2","ХФ1","ФХ2","ФК"]
 NUMBER_TEACHERS = 6
-NUMBER_STUDENT = 50
+NUMBER_STUDENT = 40
 
 fake = Faker()
 
